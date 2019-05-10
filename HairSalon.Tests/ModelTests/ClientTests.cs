@@ -99,5 +99,19 @@ namespace HairSalon.Tests
       CollectionAssert.AreEqual(testList, result);
     }
 
+    [TestMethod]
+    public void Find_ReturnsCorrectClientFromDatabase_Client()
+    {
+      //Arrange
+      Client testClient = new Client("Steve Buscemi", 1);
+      testClient.Save();
+
+      //Act
+      Client foundClient = Client.Find(testClient.Id);
+
+      //Assert
+      Assert.AreEqual(testClient, foundClient);
+    }
+
   }
 }
