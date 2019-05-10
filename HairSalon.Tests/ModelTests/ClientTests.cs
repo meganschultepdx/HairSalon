@@ -40,21 +40,6 @@ namespace HairSalon.Tests
       Assert.AreEqual(clientName, result);
     }
 
-    // [TestMethod]
-    // public void SetClientName_SetClientName_String()
-    // {
-    //   //Arrange
-    //   string clientName = "Steve Buscemi";
-    //   Client newClient = new Client(clientName, 1);
-    //
-    //   //Act
-    //   string updatedClientName = "Daniel Stern";
-    //   newClient.ClientName;
-    //   string result = newClient.ClientName;
-    //
-    //   //Assert
-    //   Assert.AreEqual(updatedClientName, result);
-    // }
 
     [TestMethod]
     public void Equals_ReturnsTrueIfClinetNamesAreTheSame_Client()
@@ -65,6 +50,53 @@ namespace HairSalon.Tests
 
       // Assert
       Assert.AreEqual(firstClient, secondClient);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsEmptyList_ClientList()
+    {
+      //Arrange
+      List<Client> newList = new List<Client> { };
+
+      //Act
+      List<Client> result = Client.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsClients_ClientList()
+    {
+      //Arrange
+      string clientName01 = "Steve Buscemi";
+      string clientName02 = "Daniel Stern";
+      Client newClient1 = new Client(clientName01, 1);
+      newClient1.Save();
+      Client newClient2 = new Client(clientName02, 1);
+      newClient2.Save();
+      List<Client> newList = new List<Client> { newClient1, newClient2 };
+
+      //Act
+      List<Client> result = Client.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
+    [TestMethod]
+    public void Save_SavesToDatabase_ClientList()
+    {
+      //Arrange
+      Client testClient = new Client("Steve Buscemi", 1);
+
+      //Act
+      testClient.Save();
+      List<Client> result = Client.GetAll();
+      List<Client> testList = new List<Client>{testClient};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
     }
 
   }
