@@ -30,7 +30,7 @@ This web applicaton will allow the user to enter employees and their clients int
 
 |Objectives|example input|example output|
 |-|-|-|
-|User is ale to save stylist name to stylist table in DB and DB assigns id to entry.| "Gary Busey" |in table:  id=0; name= Gary Busey|
+|User is able to save stylist name to stylist table in DB and DB assigns id to entry.| "Gary Busey" |in table:  id=0; name= Gary Busey|
 |User is able to view list of all stylists saved in DB.|navigate to "see all stylists" page|-Gary Busey|
 |user is able to click on specific stylist name and then add associated client that will save to client table in DB.|  click on"Steve Buscemi" | form that allows client name to be entered |
 |user is able to view list of all clients associated with that stylist.|navigate to view all clients|-Steve Buscemi|
