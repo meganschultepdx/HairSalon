@@ -13,7 +13,7 @@ namespace HairSalon.Models
     public Client (string clientName, int stylistId, int id = 0)
     {
       ClientName = clientName;
-      StylistId = StylistId;
+      StylistId = stylistId;
       Id = id;
     }
 
