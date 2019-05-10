@@ -7,35 +7,12 @@ using HairSalon.Models;
 namespace HairSalon.Tests
 {
     [TestClass]
-    public class ClientControllerTest
+    public class ClientControllerTest: Controller
     {
 
-      [TestMethod]
-      public void Create_ReturnsCorrectActionType_RedirectToActionResult()
-      {
-        //Arrange
-        ClientsController controller = new ClientsController();
+    
 
-        //Act
-        IActionResult view = controller.Create("Steve Buscemi");
 
-        //Assert
-        Assert.IsInstanceOfType(view, typeof(RedirectToActionResult));
-      }
-
-      [TestMethod]
-      public void Create_RedirectsToCorrectAction_Index()
-      {
-        //Arrange
-        ClientsController controller = new ClientsController();
-        RedirectToActionResult actionResult = controller.Create("Steve Buscemi") as RedirectToActionResult;
-
-        //Act
-        string result = actionResult.ActionName;
-
-        //Assert
-        Assert.AreEqual(result, "Index");
-      }
 
     }
 }

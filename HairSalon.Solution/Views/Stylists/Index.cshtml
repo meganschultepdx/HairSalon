@@ -1,13 +1,28 @@
-<h1>Current Stylists</h1>
-
-@if (@Model.Count == 0)
-{
-  <h3>No Stylists have been added yet.</h3>
+@{
+  Layout = "_Layout";
 }
 
-@foreach (var stylist in Model)
-{
-  <h3><a href='/stylists/@stylist.Id'>@stylist.Name</a></h3>
-}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Curl Up and Dye Salon</title>
+  </head>
 
-<p><a href='/'>Back to Home Page</a></p>
+  <body>
+  <h1>Current Stylists</h1>
+
+  @if (@Model.Count == 0)
+  {
+    <h3>No Stylists have been added yet.</h3>
+  }
+
+  @foreach (var stylist in Model)
+  {
+    <h3><a href='/stylists/@stylist.Id'>@stylist.Name</a></h3>
+  }
+
+  <p><a href='/'>Back to Home Page</a></p>
+
+  </body>
+</html>
