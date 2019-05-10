@@ -25,15 +25,22 @@ This web applicaton will allow the user to enter employees and their clients int
     -dotnet build
     -dotnet run
 * If run successful (which it should be) you can go to "localhost:5000" in your Chrome browser to view the application test out saving entries to the database.
- 
+
 ## Specs
 
 |Objectives|example input|example output|
 |-|-|-|
-|Return 0 if user's word does not appear in sentence.| "rad","I went to the bookstore." | 0 |
-|Return 1 if user sentence is single word that matches user's word.|"rad", "rad."|1|
-|Return 1 if user's word appears once in sentence longer than one word.|"rad", "I wen't to a rad bookstore."| 1 |
-|Return total number of times user's word appears in user sentence if more than once.|"rad", "I went to a rad bookstore full of rad books."| 2 |
+|User is ale to save stylist name to stylist table in DB.| "Gary Busey" ||id|name|
+|-|-|
+|0|Gary Busey| |
+|User is able to view list of all stylists saved in DB.|navigate to "see all stylists" page|-Gary Busey|
+|user is able to click on specific stylist name and then add associated client that will save to client table in DB.| "Steve Buscemi" ||id|name|stylist_id|
+|-|-|-|
+|0|Steve Buscemi|0| |
+|user is able to view list of all clients associated with that stylist.|navigate to view all clients|"Steve Buscemi"|
+|user is able to click on specific client name and edit or delete the name.|click on "Steve Buscemi"|view "edit" and "delete" options|
+|user is able to make a change to the clients name in the edit field and it will update in the client table of DB.|enter "Steve Martin" in the edit field|"Steve Martin" will now be in client list instead
+|user is able to delete client|click delete button|"Steve Buscemi" is no longer in client list|
 
 
 ## Known Bugs
@@ -46,7 +53,7 @@ Create a pull request on GitHub.
 
 ## Technologies Used
 
-I used C# to build this webpage.
+I used C# and MySql to build this webpage and Database.
 
 ### License
 
