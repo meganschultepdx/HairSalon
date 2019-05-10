@@ -8,12 +8,12 @@ namespace HairSalon.Models
   {
     public string ClientName { get; set; }
     public int Id { get; set; }
-    public int CategoryId { get; set; }
+    public int StylistId { get; set; }
 
-    public Client (string clientName, int categoryId, int id = 0)
+    public Client (string clientName, int stylistId, int id = 0)
     {
       ClientName = clientName;
-      CategoryId = categoryId;
+      CategoryId = StylistId;
       Id = id;
     }
   }
