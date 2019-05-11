@@ -1,0 +1,36 @@
+body {
+  background-color: black;
+  text-align: center;
+  background-image: url("~/img/pinkhair.jpg");
+  }
+
+
+h1 {
+  font-size: 40px;
+  color: #eae6ed;
+  font-weight: lighter;
+}
+
+h2 {
+  font-size: 24px;
+  color: #eae6ed;
+  font-weight: lighter;
+}
+
+h3 {
+  font-size: 30px;
+  color: #eae6ed;
+  font-weight: lighter;
+}
+
+p {
+  font-size: 30px;
+  color: #eae6ed;
+  font-weight: lighter;
+}
+
+ol {
+  font-size: 30px;
+  color: #eae6ed;
+  font-weight: lighter;
+}
