@@ -5,13 +5,13 @@ namespace HairSalon.Models
 {
   public class Stylist
   {
-    public string Name { get; set; }
+    public string StylistName { get; set; }
     public int Id { get; set; }
     public List<Client> Clients { get; set; }
 
     public Stylist(string stylistName, int id = 0)
     {
-      Name = stylistName;
+      StylistName = stylistName;
       Id = id;
       Clients = new List<Client>{};
     }
@@ -26,8 +26,8 @@ namespace HairSalon.Models
       {
         Stylist newStylist = (Stylist) otherStylist;
         bool idEquality = this.Id.Equals(newStylist.Id);
-        bool nameEquality = this.Name.Equals(newStylist.Name);
-        return (idEquality && nameEquality);
+        bool stylistNameEquality = this.StylistName.Equals(newStylist.StylistName);
+        return (idEquality && stylistNameEquality);
       }
     }
 
@@ -36,11 +36,11 @@ namespace HairSalon.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"INSERT INTO stylists (name) VALUES (@name);";
-      MySqlParameter name = new MySqlParameter();
-      name.ParameterName = "@name";
-      name.Value = this.Name;
-      cmd.Parameters.Add(name);
+      cmd.CommandText = @"INSERT INTO stylists (stylist_name) VALUES (@stylistName);";
+      MySqlParameter stylistName = new MySqlParameter();
+      stylistName.ParameterName = "@stylistName";
+      stylistName.Value = this.StylistName;
+      cmd.Parameters.Add(stylistName);
       cmd.ExecuteNonQuery();
       Id = (int) cmd.LastInsertedId;
       conn.Close();
@@ -183,6 +183,29 @@ namespace HairSalon.Models
       cmd.Parameters.AddWithValue("@StylistId", Id);
       cmd.Parameters.AddWithValue("@SpecialtyId", newSpecialty.Id);
       cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
+    public void Edit(string newStylistName)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"UPDATE stylists SET stylist_name = @newStylistName WHERE id = @searchId;";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = Id;
+      cmd.Parameters.Add(searchId);
+      MySqlParameter stylistName = new MySqlParameter();
+      stylistName.ParameterName = "@newStylistName";
+      stylistName.Value = newStylistName;
+      cmd.Parameters.Add(stylistName);
+      cmd.ExecuteNonQuery();
+      StylistName = newStylistName;
       conn.Close();
       if (conn != null)
       {

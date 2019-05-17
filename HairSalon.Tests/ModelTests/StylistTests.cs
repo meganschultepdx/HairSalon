@@ -26,21 +26,21 @@ namespace HairSalon.Tests
     }
 
     [TestMethod]
-    public void GetName_ReturnsName_String()
+    public void GetStylistName_ReturnsStylistName_String()
     {
       //Arrange
       string name = "Test Stylist";
-      Stylist newStylist = new Stylist(name);
+      Stylist newStylist = new Stylist(stylistName);
 
       //Act
-      string result = newStylist.Name;
+      string result = newStylist.StylistName;
 
       //Assert
-      Assert.AreEqual(name, result);
+      Assert.AreEqual(stylistName, result);
     }
 
     [TestMethod]
-    public void Equals_ReturnsTrueIfNamesAreTheSame_Stylist()
+    public void Equals_ReturnsTrueIfStylistNamesAreTheSame_Stylist()
     {
       //Arrange, Act
       Stylist firstStylist = new Stylist("Gary Busey");
@@ -121,8 +121,8 @@ namespace HairSalon.Tests
     public void GetClients_ReturnsEmptyClientList_ClientList()
     {
       //Arrange
-      string name = "Work";
-      Stylist newStylist = new Stylist(name);
+      string name = "gandolf";
+      Stylist newStylist = new Stylist(stylistName);
       List<Client> newList = new List<Client> { };
 
       //Act
@@ -176,6 +176,22 @@ namespace HairSalon.Tests
 
       //Assert
       CollectionAssert.AreEqual(testSpecialtyStylists, resultSpecialtyStylists);
+    }
+
+    [TestMethod]
+    public void Edit_UpdatesStylistInDatabase_String()
+    {
+      //Arrange
+      Stylist testStylist = new Stylist("Barth Martherson", 1);
+      testStylist.Save();
+      string secondStylistName = "Marth Martherson";
+
+      //Act
+      testStylist.Edit(secondStylistName);
+      string result = Stylist.Find(testStylist.Id).StylistName;
+
+      //Assert
+      Assert.AreEqual(secondStylistName, result);
     }
 
 

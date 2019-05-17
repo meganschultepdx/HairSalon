@@ -10,7 +10,7 @@
       <h2>No Clients have been added yet.</h2>
     }
 
-    <h2>Clients belonging to <strong>@Model["stylist"].Name</strong></h2>
+    <h2>Clients belonging to <strong>@Model["stylist"].StylistName</strong></h2>
     @foreach (var client in @Model["clients"])
       {
         <h3><a href='/stylists/@Model["stylist"].Id/clients/@client.Id'>@client.ClientName</a></h3>
