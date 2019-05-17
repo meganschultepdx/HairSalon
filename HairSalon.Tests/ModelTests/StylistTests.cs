@@ -29,7 +29,7 @@ namespace HairSalon.Tests
     public void GetStylistName_ReturnsStylistName_String()
     {
       //Arrange
-      string name = "Test Stylist";
+      string stylistName = "Test Stylist";
       Stylist newStylist = new Stylist(stylistName);
 
       //Act
@@ -121,7 +121,7 @@ namespace HairSalon.Tests
     public void GetClients_ReturnsEmptyClientList_ClientList()
     {
       //Arrange
-      string name = "gandolf";
+      string stylistName = "gandolf";
       Stylist newStylist = new Stylist(stylistName);
       List<Client> newList = new List<Client> { };
 
