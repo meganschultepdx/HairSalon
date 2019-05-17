@@ -1,12 +1,12 @@
 # Hair Salon
 
-#### C# Application that uses a Database, 5-10-2019
+#### C# Application that uses a Database, 5-17-2019
 
 #### By Megan Schulte
 
 ## Description
 
-This web applicaton will allow the user to enter employees and their clients into a database that will keep track of them. It will also allow the user to retrieve, edit and delete this information from the database. The targeted user is the owner/manager of a fictional hair salon.
+This web applicaton will allow the the owner/employee to enter new stylists, their specialties and their clients into a database that will keep track of them. It will also allow the owner/employee to retrieve, edit and delete this information from the database. It is also built so that a potential client can view the specialties offered by the salon and specifically see which stylist provides the service; as well as an about page for the salon. I need to move things around a bit so that the customer cannot add to/edit the specialties.
 
 ## Setup/Installation Requirements
 
@@ -37,6 +37,12 @@ This web applicaton will allow the user to enter employees and their clients int
 |user is able to click on specific client name and edit or delete the name.|click on "Steve Buscemi"|view "edit" and "delete" options|
 |user is able to make a change to the clients name in the edit field and it will update in the client table of DB.|enter "Steve Martin" in the edit field|"Steve Martin" will now be in client list instead
 |user is able to delete client|click delete button|"Steve Buscemi" is no longer in client list|
+|user is able to make a change to the stylists name in the edit field and it will update in the stylists table of DB.|enter "Steve Martin" in the edit field|"Steve Martin" will now be in stylist list instead|
+|user is able to delete stylist|click delete button|"Steve Buscemi" is no longer in stylist list|
+|owner/stylist is able to enter specialty and it will add to specialties table of DB| enter "fade" in the edit field|"fade" will now be in specialties list instead and in the specialties DB|
+|owner/stylist is able to click on a specialty and assign a stylist from a drop down list to that specialty| click on fade, then choose "Jonathan Van Ness" in list| Jonathan's id will now be added to the stylist_skills JOIN table next to fade id, and Jonathan's name will appear in a list in Fade's details page.|
+|owner/stylist is able to click on a stylist and assign a specialty from a drop down list to that stylist| click on Jonathan Van Ness, then choose "fade" from list| fade's id will now be added to the stylist_skills JOIN table next to Jonathan's id, and fade will appear in a list on Jonathan's details page.|
+
 
 
 ## Known Bugs
