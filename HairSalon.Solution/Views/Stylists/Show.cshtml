@@ -16,7 +16,15 @@
         <h3><a href='/stylists/@Model["stylist"].Id/clients/@client.Id'>@client.ClientName</a></h3>
       }
 
+
     <h4><a href='/stylists/@Model["stylist"].Id/clients/new'>Add a new client to this stylist.</a></h4>
-    <h4><a href='/stylists'>Return to the List of Stylists</a></h4>
+
+    <h4 id="blackText" class="smallMargin"><a href='/stylists/@Model["stylist"].Id/edit'>Edit Stylist's Name</a>
+
+      <form action='/stylists/@Model["stylist"].Id/delete' method="post">
+        <button id="delete" class="btn btn-dark" type="submit">Delete this Stylist</button>
+      </form>
+
+    <a href='/stylists'>Return to the List of All Stylists</a></h4>
   </body>
 </html>
