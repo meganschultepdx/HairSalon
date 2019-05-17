@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 10, 2019 at 05:13 PM
+-- Generation Time: May 17, 2019 at 03:41 PM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.1
 
@@ -45,6 +45,18 @@ CREATE TABLE `stylists` (
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stylist_skills`
+--
+
+CREATE TABLE `stylist_skills` (
+  `id` int(11) NOT NULL,
+  `name_id` int(11) NOT NULL,
+  `technique_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Indexes for dumped tables
 --
@@ -62,6 +74,12 @@ ALTER TABLE `stylists`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `stylist_skills`
+--
+ALTER TABLE `stylist_skills`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -69,12 +87,18 @@ ALTER TABLE `stylists`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `stylists`
 --
 ALTER TABLE `stylists`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `stylist_skills`
+--
+ALTER TABLE `stylist_skills`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 10, 2019 at 05:12 PM
+-- Generation Time: May 17, 2019 at 03:39 PM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.1
 
@@ -34,6 +34,19 @@ CREATE TABLE `clients` (
   `stylist_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `clients`
+--
+
+INSERT INTO `clients` (`id`, `client_name`, `stylist_id`) VALUES
+(22, 'jhkhkh', 4),
+(26, 'gary', 1),
+(27, 'splorg', 0),
+(28, 'splorg', 0),
+(29, 'marg', 1),
+(30, 'blargers', 1),
+(31, 'mr bipples', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -43,6 +56,29 @@ CREATE TABLE `clients` (
 CREATE TABLE `stylists` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `stylists`
+--
+
+INSERT INTO `stylists` (`id`, `name`) VALUES
+(1, 'steve buscemi'),
+(2, 'steve'),
+(3, 'borg'),
+(4, 'borg'),
+(5, 'bart');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stylist_skills`
+--
+
+CREATE TABLE `stylist_skills` (
+  `id` int(11) NOT NULL,
+  `name_id` int(11) NOT NULL,
+  `technique_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -62,6 +98,12 @@ ALTER TABLE `stylists`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `stylist_skills`
+--
+ALTER TABLE `stylist_skills`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -69,12 +111,18 @@ ALTER TABLE `stylists`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `stylists`
 --
 ALTER TABLE `stylists`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `stylist_skills`
+--
+ALTER TABLE `stylist_skills`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
