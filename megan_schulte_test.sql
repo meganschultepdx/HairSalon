@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 17, 2019 at 03:41 PM
+-- Generation Time: May 17, 2019 at 04:02 PM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.1
 
@@ -32,6 +32,17 @@ CREATE TABLE `clients` (
   `id` int(11) NOT NULL,
   `client_name` varchar(255) NOT NULL,
   `stylist_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `specialties`
+--
+
+CREATE TABLE `specialties` (
+  `id` int(11) NOT NULL,
+  `techniques` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -68,6 +79,12 @@ ALTER TABLE `clients`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `specialties`
+--
+ALTER TABLE `specialties`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `stylists`
 --
 ALTER TABLE `stylists`
@@ -88,6 +105,12 @@ ALTER TABLE `stylist_skills`
 --
 ALTER TABLE `clients`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT for table `specialties`
+--
+ALTER TABLE `specialties`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `stylists`

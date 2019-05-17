@@ -7,3 +7,6 @@ namespace HairSalon.Controllers
 {
   public class SpecialtyController : Controller
   {
+
+  }
+}
