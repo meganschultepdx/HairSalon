@@ -3,14 +3,13 @@
 }
 
   <body>
-    <h1>Curl Up and Dye Hair Salon</h1>
-    <hr>
+    <h1>ALCHEMY SALON</h1>
 
     <h2>Edit Client: @Model["client"].ClientName</h2>
 
     <form action="/stylists/@Model["stylist"].Id/clients/@Model["client"].Id" method="post">
 
-      <label for="newClientName">Enter Name Edit/New Name</label>
+      <label for="newClientName">Enter name change:</label><br>
       <input type="text" name="newClientName" value="@Model["client"].ClientName">
 
       <button type="submit">Make Change</button>

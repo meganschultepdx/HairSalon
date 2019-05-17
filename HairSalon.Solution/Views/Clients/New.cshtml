@@ -3,9 +3,11 @@
 }
 
 <body>
-    <h1>Add a new client to @Model.Name</h1>
 
-    <form action='/stylists/@Model.Id/clients' method='post'>
+  <h1>ALCHEMY SALON</h1>
+    <h2>Add a new client to <strong>@Model.Name</strong></h2>
+
+    <form id="newClient" action='/stylists/@Model.Id/clients' method='post'>
       <input id='stylistId' name='stylistId' type='hidden' value='@Model.Id'>
 
       <label for='clientClientName'>Client's </label>
