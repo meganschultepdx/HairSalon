@@ -2,25 +2,21 @@
   Layout = "_Layout";
 }
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <title>Curl Up and Dye Salon</title>
-  </head>
-
   <body>
-    <h2>@Model["client"].ClientName</h2>
-    <h3>Stylist: @Model["stylist"].Name</h3>
+    <h1>Curl Up and Dye Salon</h1><br>
+    <p class="blue">Client:</p>
+    <h3>@Model["client"].ClientName</h3>
+    <p class="blue">Stylist:
+    <h3>@Model["stylist"].Name</h3>
 
-    <a href='/stylists/@Model["stylist"].Id/clients/@Model["client"].Id/edit'>Edit Client's Name</a>
+    <a id="edit" href='/stylists/@Model["stylist"].Id/clients/@Model["client"].Id/edit'>Edit Client's Name</a><br>
 
-    <form action='/stylists/@Model["stylist"].Id/clients/@Model["client"].Id/delete' method="post">
+    <h3 id="delete"><form action='/stylists/@Model["stylist"].Id/clients/@Model["client"].Id/delete' method="post">
     <button type="submit">Delete this Client</button>
-    </form>
+    </form></h3><br>
 
-    <a href='/stylists/@Model["stylist"].Id/clients/new'>Add another Client</a>
-    <a href='/stylists'>Go Back to View all Stylist</a>
+    <h4 class="whiteLink"><a href='/stylists/@Model["stylist"].Id/clients/new'>Add another Client</a><br>
+    <a href='/stylists'>Go Back to View all Stylist</a></h4>
 
   </body>
 </html>
