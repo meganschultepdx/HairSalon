@@ -5,9 +5,9 @@
   <body>
     <h1>ALCHEMY SALON</h1>
 
-    <h2>Edit Client: @Model["client"].ClientName</h2>
+    <h2>Edit Client: <strong>@Model["client"].ClientName</strong></h2>
 
-    <form action="/stylists/@Model["stylist"].Id/clients/@Model["client"].Id" method="post">
+    <form id="newClient" action="/stylists/@Model["stylist"].Id/clients/@Model["client"].Id" method="post">
 
       <label for="newClientName">Enter name change:</label><br>
       <input type="text" name="newClientName" value="@Model["client"].ClientName">
@@ -15,6 +15,6 @@
       <button type="submit">Make Change</button>
     </form>
 
-    <h4 class="whiteLink"><a href="/stylists/@Model["stylist"].Id/clients/@Model["client"].Id">Return to previous page</a></h4>
+    <h4><a href="/stylists/@Model["stylist"].Id/clients/@Model["client"].Id">Return to previous page</a></h4>
   </body>
 </html>

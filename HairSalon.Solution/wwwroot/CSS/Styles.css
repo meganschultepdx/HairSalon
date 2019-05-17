@@ -83,11 +83,15 @@ h3 {
   opacity: .7;
 }
 
+h3 a {
+  color: #BCE7F6;
+}
+
 .blue {
   /* display: flex;
   justify-content: center;
   width: 500px; */
-  color: #2595f7;
+  color: #BCE7F6;
 }
 
 h4 {
