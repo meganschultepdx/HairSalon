@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+  <body>
+    <h1>ALCHEMY SALON</h1>
+    <h2>Enter name of new specialty. You will be able to assign Stylists to each one after.</h2>
+
+    <form id="newSpecialty" action="/specialty" method="post">
+
+      <label for="technique">Specialty Offered</label>
+      <input id="technique" name="technique" type="text">
+
+      <button type="submit">Add</button>
+    </form>
+
+    <h4><a class="bluelink" href='/specialties'>Back to List of Specialties</a></h4>
+  </body>
+</html>

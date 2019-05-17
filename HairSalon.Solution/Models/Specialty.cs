@@ -176,8 +176,5 @@ namespace HairSalon.Models
       }
     }
 
-
-
-
   }
 }
