@@ -10,21 +10,20 @@
       <h2>No Stylists have been added yet.</h2>
     }
 
-    <h2>Stylists belonging to <strong>@Model["specialty"].Technique</strong></h2>
+    <h2>Stylists belonging to <strong>@Model["specialties"].Technique</strong></h2>
     @foreach (var stylist in @Model["stylist"])
       {
-        <h3><a href='/specialties/@Model["specialty"].Id/stylist/@stylist.Id'>@stylist.StylisName</a></h3>
+        <h3><a href='/specialty/@Model["specialties"].Id/stylist/@stylist.Id'>@stylist.StylistName</a></h3>
       }
 
-
-    <h4><a href='/specialties/@Model["specialty"].Id/stylist/new'>Add a new stylist to this specialty.</a></h4>
+    <h4><a href='/specialty/@Model["specialties"].Id/stylist/new'>Add a new stylist to this specialty.</a></h4>
 
     <!-- <h4 id="blackText" class="smallMargin"><a href='/specialties/@Model["specialty"].Id/edit'>Edit Stylist's Name</a>
 
       <form action='/specialties/@Model["specialty"].Id/delete' method="post">
         <button id="delete" class="btn btn-dark" type="submit">Delete this Stylist</button>
-      </form> -->
+      </form>
 
-    <h4><a href='/specialties'>Return to the List of All Specialties</a></h4>
+    <h4><a href='/specialty'>Return to the List of All Specialties</a></h4>
   </body>
 </html>
