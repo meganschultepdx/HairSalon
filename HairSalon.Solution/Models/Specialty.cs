@@ -100,7 +100,6 @@ namespace HairSalon.Models
       var rdr = cmd.ExecuteReader() as MySqlDataReader;
       int SpecialtyId = 0;
       string SpecialtyTechnique = "";
-      DateTime SpecialtyCheckoutDate = new DateTime(2000, 11, 11);
       while(rdr.Read())
       {
         SpecialtyId = rdr.GetInt32(0);
@@ -114,6 +113,63 @@ namespace HairSalon.Models
       }
       return newSpecialty;
     }
+
+    public List<Stylist> GetStylists()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT stylists.* FROM specialties
+      JOIN stylist_skills ON (specialties.id = stylist_skills.specialties_id)
+      JOIN stylists ON (stylist_skills.stylist_id = stylists.id)
+      WHERE specialties.id = @SpecialtyId;";
+      MySqlParameter specialtyIdParameter = new MySqlParameter();
+      specialtyIdParameter.ParameterName = "@SpecialtyId";
+      specialtyIdParameter.Value = Id;
+      cmd.Parameters.Add(specialtyIdParameter);
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      List<Stylist> stylists = new List<Stylist>{};
+      while(rdr.Read())
+      {
+        int stylistId = rdr.GetInt32(0);
+        string stylistName = rdr.GetString(1);
+        Stylist newStylist = new Stylist(stylistName, stylistId);
+        stylists.Add(newStylist);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return stylists;
+    }
+
+
+    public void AddStylist(Stylist newStylist)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO stylist_skills (specialties_id, stylist_id) VALUES (@SpecialtyId, @StylistId);";
+      // MySqlParameter patron_id = new MySqlParameter();
+      // patron_id.ParameterName = "@SpecialtyId";
+      // patron_id.Value = Id;
+      // cmd.Parameters.Add(patron_id);
+      cmd.Parameters.AddWithValue("@SpecialtyId", Id);
+      cmd.Parameters.AddWithValue("@StylistId", newStylist.Id);
+
+      // MySqlParameter stylist_id = new MySqlParameter();
+      // stylist_id.ParameterName = "@StylistId";
+      // stylist_id.Value = newStylist.Id;
+      // cmd.Parameters.Add(stylist_id);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
 
 
   }
