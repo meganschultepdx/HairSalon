@@ -159,6 +159,25 @@ namespace HairSalon.Tests
       CollectionAssert.AreEqual(testClientList, resultClientList);
     }
 
+    [TestMethod]
+    public void Delete_DeletesStylistAssociationsFromDatabase_StylistList()
+    {
+      //Arrange
+      Specialty testSpecialty = new Specialty("fade");
+      testSpecialty.Save();
+      Stylist testStylist = new Stylist("Barth Martherson");
+      testStylist.Save();
+
+      //Act
+      testStylist.AddSpecialty(testSpecialty);
+      testStylist.Delete();
+      List<Stylist> resultSpecialtyStylists = testSpecialty.GetStylists();
+      List<Stylist> testSpecialtyStylists = new List<Stylist> {};
+
+      //Assert
+      CollectionAssert.AreEqual(testSpecialtyStylists, resultSpecialtyStylists);
+    }
+
 
   }
 }
