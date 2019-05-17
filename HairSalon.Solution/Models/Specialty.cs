@@ -86,5 +86,35 @@ namespace HairSalon.Models
       }
       return allSpecialties;
     }
+
+    public static Specialty Find(int id)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM specialties WHERE id = (@searchId);";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = id;
+      cmd.Parameters.Add(searchId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      int SpecialtyId = 0;
+      string SpecialtyTechnique = "";
+      DateTime SpecialtyCheckoutDate = new DateTime(2000, 11, 11);
+      while(rdr.Read())
+      {
+        SpecialtyId = rdr.GetInt32(0);
+        SpecialtyTechnique = rdr.GetString(1);
+      }
+      Specialty newSpecialty = new Specialty(SpecialtyTechnique, SpecialtyId);
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return newSpecialty;
+    }
+
+
   }
 }

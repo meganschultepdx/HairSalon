@@ -43,5 +43,19 @@ namespace HairSalon.Tests
       CollectionAssert.AreEqual(newList, result);
     }
 
+    [TestMethod]
+    public void Find_ReturnsSpecialtyInDatabase_Specialty()
+    {
+      //Arrange
+      Specialty testSpecialty = new Specialty("Perm");
+      testSpecialty.Save();
+
+      //Act
+      Specialty foundSpecialty = Specialty.Find(testSpecialty.Id);
+
+      //Assert
+      Assert.AreEqual(testSpecialty, foundSpecialty);
+    }
+
   }
 }
