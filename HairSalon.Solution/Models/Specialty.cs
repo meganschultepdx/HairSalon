@@ -144,24 +144,14 @@ namespace HairSalon.Models
       return stylists;
     }
 
-
     public void AddStylist(Stylist newStylist)
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
       cmd.CommandText = @"INSERT INTO stylist_skills (specialties_id, stylist_id) VALUES (@SpecialtyId, @StylistId);";
-      // MySqlParameter patron_id = new MySqlParameter();
-      // patron_id.ParameterName = "@SpecialtyId";
-      // patron_id.Value = Id;
-      // cmd.Parameters.Add(patron_id);
       cmd.Parameters.AddWithValue("@SpecialtyId", Id);
       cmd.Parameters.AddWithValue("@StylistId", newStylist.Id);
-
-      // MySqlParameter stylist_id = new MySqlParameter();
-      // stylist_id.ParameterName = "@StylistId";
-      // stylist_id.Value = newStylist.Id;
-      // cmd.Parameters.Add(stylist_id);
       cmd.ExecuteNonQuery();
       conn.Close();
       if (conn != null)
@@ -169,6 +159,23 @@ namespace HairSalon.Models
         conn.Dispose();
       }
     }
+
+    // public void Delete()
+    // {
+    //   MySqlConnection conn = DB.Connection();
+    //   conn.Open();
+    //   MySqlCommand cmd = new MySqlCommand("DELETE FROM specialties WHERE id = @SpecialtyId; DELETE FROM stylist_skills WHERE specialty_id = @SpecialtyId;", conn);
+    //   MySqlParameter specialtyIdParameter = new MySqlParameter();
+    //   specialtyIdParameter.ParameterName = "@SpecialtyId";
+    //   specialtyIdParameter.Value = this.Id;
+    //   cmd.Parameters.Add(specialtyIdParameter);
+    //   cmd.ExecuteNonQuery();
+    //   if (conn != null)
+    //   {
+    //     conn.Close();
+    //   }
+    // }
+
 
 
 

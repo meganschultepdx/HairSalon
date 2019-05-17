@@ -90,6 +90,26 @@ namespace HairSalon.Tests
     }
 
     [TestMethod]
+    public void GetStylists_ReturnsAllSpecialtyStylists_StylistList()
+    {
+      //Arrange
+      Specialty testSpecialty = new Specialty("perm");
+      testSpecialty.Save();
+      Stylist testStylist1 = new Stylist("Jonathan Van Ness");
+      testStylist1.Save();
+      Stylist testStylist2 = new Stylist("bort");
+      testStylist2.Save();
+
+      //Act
+      testSpecialty.AddStylist(testStylist1);
+      List<Stylist> result = testSpecialty.GetStylists();
+      List<Stylist> testList = new List<Stylist> {testStylist1};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
+
+    [TestMethod]
     public void AddStylist_AddsStylistToSpecialty_StylistList()
     {
       //Arrange
@@ -107,6 +127,25 @@ namespace HairSalon.Tests
       //Assert
       CollectionAssert.AreEqual(testList, result);
     }
+
+    // [TestMethod]
+    // public void Delete_DeletesSpecialtyAssociationsFromDatabase_SpecialtyList()
+    // {
+    //   //Arrange
+    //   Stylist testStylist = new Stylist("Jonathan Van Ness");
+    //   testStylist.Save();
+    //   Specialty testSpecialty = new Specialty("perm");
+    //   testSpecialty.Save();
+    //
+    //   //Act
+    //   testSpecialty.AddStylist(testStylist);
+    //   testSpecialty.Delete();
+    //   List<Specialty> resultStylistSpecialties = testStylist.GetSpecialties();
+    //   List<Specialty> testStylistSpecialties = new List<Specialty> {};
+    //
+    //   //Assert
+    //   CollectionAssert.AreEqual(testStylistSpecialties, resultStylistSpecialties);
+    // }
 
 
 
