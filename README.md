@@ -16,8 +16,9 @@ This web applicaton will allow the the owner/employee to enter new stylists, the
     -"mysql -uroot -proot" to access MySql
     -CREATE DATABASE megan_schulte;
     -USE megan_schulte;
-    -CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR(255));
-    -CREATE TABLE clients (id serial PRIMARY KEY, clientName VARCHAR(255));
+    -CREATE TABLE stylists (id serial PRIMARY KEY, stylist_name VARCHAR(255));
+    -CREATE TABLE clients (id serial PRIMARY KEY, client_name VARCHAR(255));
+    -CREATE TABLE specialties (id serial PRIMARY KEY, stylist_id INT, specialty_id INT);
 * There is also a copy of the previously created database saved with this project, to import it into MySql go to https://www.learnhowtoprogram.com/c/database-basics-ee7c9fd3-fcd9-4fff-8b1d-5ff7bfcbf8f0/exporting-mysql-databases-in-phpmyadmin and scroll down to the section labelled "Importing a Previously-Exported Database". Once prompted you can find the database in the project folder under the name:  megan_schulte.sql  
 * Then to view the application with database on local server type the following in the command line:
     -"mysql -uroot -proot" to access MySql (if not still in mysql)

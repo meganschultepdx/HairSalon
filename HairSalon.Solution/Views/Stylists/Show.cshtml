@@ -19,6 +19,12 @@
 
     <h4><a href='/stylists/@Model["stylist"].Id/clients/new'>Add a new client to this stylist.</a></h4>
 
+    <h2>Specialties offered by <strong>@Model["stylist"].StylistName</strong></h2>
+    @foreach (var specialty in @Model["allSpecialties"])
+      {
+        <h3><a href='/stylists/@Model["stylist"].Id/specialties/@specialty.Id'>@specialty.Technique</a></h3>
+      }
+
     <h4>Add a Specialty to this Stylist:
 
     <form action='/stylists/@Model["stylist"].Id/Specialty/new' method='post'>
