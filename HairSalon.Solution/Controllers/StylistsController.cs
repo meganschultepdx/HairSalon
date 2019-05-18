@@ -52,9 +52,11 @@ namespace HairSalon.Controllers
       Stylist foundStylist = Stylist.Find(stylistId);
       Client newClient = new Client(clientClientName, stylistId);
       newClient.Save();
+      List<Specialty> allSpecialties = Specialty.GetAll();
       List<Client> stylistClients = foundStylist.GetClients();
       model.Add("clients", stylistClients);
       model.Add("stylist", foundStylist);
+      model.Add("allSpecialties", allSpecialties);
       return View("Show", model);
     }
 
