@@ -144,6 +144,22 @@ namespace HairSalon.Models
       return allStylistClients;
     }
 
+    public void AddSpecialty(Specialty newSpecialty)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO stylist_skills (stylist_id, specialties_id) VALUES (@StylistId, @SpecialtyId);";
+      cmd.Parameters.AddWithValue("@StylistId", Id);
+      cmd.Parameters.AddWithValue("@SpecialtyId", newSpecialty.Id);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
     public List<Specialty> GetSpecialties()
     {
       MySqlConnection conn = DB.Connection();
@@ -174,21 +190,6 @@ namespace HairSalon.Models
       return specialties;
     }
 
-    public void AddSpecialty(Specialty newSpecialty)
-    {
-      MySqlConnection conn = DB.Connection();
-      conn.Open();
-      var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"INSERT INTO stylist_skills (stylist_id, specialties_id) VALUES (@StylistId, @SpecialtyId);";
-      cmd.Parameters.AddWithValue("@StylistId", Id);
-      cmd.Parameters.AddWithValue("@SpecialtyId", newSpecialty.Id);
-      cmd.ExecuteNonQuery();
-      conn.Close();
-      if (conn != null)
-      {
-        conn.Dispose();
-      }
-    }
 
     public void Edit(string newStylistName)
     {
