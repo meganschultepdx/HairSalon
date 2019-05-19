@@ -11,7 +11,8 @@
   }
 
   <h2>Stylists belonging to <strong>@Model["specialty"].Technique</strong></h2>
-  @foreach (var stylist in @Model["allStylists"])
+
+  @foreach (var stylist in @Model["specialtyStylists"])
   {
     <h3><a href='/specialty/@Model["specialty"].Id/stylist/@stylist.Id'>@stylist.StylistName</a></h3>
   }
@@ -21,6 +22,7 @@
     <form action='/specialty/@Model["specialty"].Id/Stylist/new' method='post'>
       <label id="blue" for='stylistId'>Select a Stylist</label>
       <select id='stylistId' name='stylistId' type='text'>
+
         @foreach (var stylist in @Model["allStylists"])
         {
           <option value='@stylist.Id'>@stylist.StylistName</option>

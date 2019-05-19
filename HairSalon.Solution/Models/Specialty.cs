@@ -160,7 +160,6 @@ namespace HairSalon.Models
       return stylists;
     }
 
-
     public void Delete()
     {
       MySqlConnection conn = DB.Connection();
