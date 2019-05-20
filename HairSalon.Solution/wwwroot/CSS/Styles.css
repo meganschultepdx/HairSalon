@@ -142,3 +142,9 @@ h4 a {
 #blue {
   color: #BCE7F6;
 }
+
+#small {
+  font-size: 20px;
+  font-weight: lighter;
+  color: #BCE7F6; 
+}

@@ -38,7 +38,7 @@ namespace HairSalon.Controllers
       List<Client> stylistClients = foundStylist.GetClients();
       model.Add("clients", stylistClients);
       model.Add("stylist", foundStylist);
-      return RedirectToAction("Show", "Stylists");
+      return RedirectToAction("Index", "Stylists");
     }
 
     [HttpGet("/stylists/{stylistId}/clients/{clientId}/edit")]
@@ -62,6 +62,13 @@ namespace HairSalon.Controllers
       model.Add("stylist", stylist);
       model.Add("client", client);
       return View("Show", model);
+    }
+
+    [HttpPost("/clients/delete")]
+    public ActionResult DeleteAll()
+    {
+      Client.ClearAll();
+      return RedirectToAction("Index", "stylists");
     }
   }
 }

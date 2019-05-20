@@ -98,12 +98,11 @@ namespace HairSalon.Controllers
     }
 
     [HttpPost("/stylists/deleteAll")]
-    public ActionResult DeleteAll(int stylistId)
+    public ActionResult DeleteAll()
     {
       Stylist.ClearAll();
       List<Stylist> allStylists = Stylist.GetAll();
       return RedirectToAction("Index", allStylists);
     }
-
   }
 }
