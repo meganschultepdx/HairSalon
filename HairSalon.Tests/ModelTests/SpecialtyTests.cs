@@ -44,15 +44,15 @@ namespace HairSalon.Tests
     }
 
     [TestMethod]
-    public void Save_SavesToDatabase_StylistList()
+    public void Save_SavesToDatabase_SpecialtyList()
     {
       //Arrange
-      Stylist testStylist = new Stylist("Jonathan Van Ness");
+      Specialty testSpecialty = new Specialty("Jonathan Van Ness");
 
       //Act
-      testStylist.Save();
-      List<Stylist> result = Stylist.GetAll();
-      List<Stylist> testList = new List<Stylist>{testStylist};
+      testSpecialty.Save();
+      List<Specialty> result = Specialty.GetAll();
+      List<Specialty> testList = new List<Specialty>{testSpecialty};
 
       //Assert
       CollectionAssert.AreEqual(testList, result);
@@ -62,14 +62,14 @@ namespace HairSalon.Tests
     public void Save_AssignsIdToObject_Id()
     {
       //Arrange
-      Stylist testStylist = new Stylist("Jonathan Van Ness");
-      testStylist.Save();
+      Specialty testSpecialty = new Specialty("buzz cut", 1);
+      testSpecialty.Save();
 
       //Act
-      Stylist savedStylist = Stylist.GetAll()[0];
+      Specialty savedSpecialty = Specialty.GetAll()[0];
 
-      int result = savedStylist.Id;
-      int testId = testStylist.Id;
+      int result = savedSpecialty.Id;
+      int testId = testSpecialty.Id;
 
       //Assert
       Assert.AreEqual(testId, result);
